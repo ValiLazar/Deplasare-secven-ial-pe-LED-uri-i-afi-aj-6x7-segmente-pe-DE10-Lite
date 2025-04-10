@@ -1,3 +1,8 @@
+
+	// ====================================================
+	// MODUL PRINCIPAL DE CONTROL AL EFECTULUI DE DEPLASARE
+	// ====================================================
+
 module deplasare_main(
     input clk_i,
     input reset_ni,
@@ -12,8 +17,8 @@ module deplasare_main(
     wire overflow_o;
     wire [5:0][7:0] seg7_o;
 
-    wire [2:0] col_i;          // 3 biți pentru 6 poziții (0-5)
-    wire direction;            // 0 = urcă, 1 = coboară
+    wire [2:0] col_i;          
+    wire direction;            
 
     // ========================
     // Instanțiere module
@@ -57,33 +62,21 @@ module deplasare_main(
     );
 
     deplasare_hex hex_inst(
-        .row_i(direction), // HIGH când urcă, LOW când coboară
+        .row_i(direction), 
         .col_i(col_i),
         .seg7_o(seg7_o)
     );
 
-    // ========================
+    // =================
     // Conectare HEX-uri
-    // ========================
+    // =================
+	 
     assign HEX5 = seg7_o[5];
     assign HEX4 = seg7_o[4];
     assign HEX3 = seg7_o[3];
     assign HEX2 = seg7_o[2];
     assign HEX1 = seg7_o[1];
     assign HEX0 = seg7_o[0];
-	 
-	 //assign HEX5 = (col_i == 5) ? seg7_o[5] : 8'b00000000;
-    //assign HEX4 = (col_i == 4) ? seg7_o[4] : 8'b00000000;
-    //assign HEX3 = (col_i == 3) ? seg7_o[3] : 8'b00000000;
-    //assign HEX2 = (col_i == 2) ? seg7_o[2] : 8'b00000000;
-    //assign HEX1 = (col_i == 1) ? seg7_o[1] : 8'b00000000;
-    //assign HEX0 = (col_i == 0) ? seg7_o[0] : 8'b00000000;
-	 
-	 //assign HEX5 = (col_i == 5) ? ~seg7_o[5] : 8'b11111111;
-	 //assign HEX4 = (col_i == 4) ? ~seg7_o[4] : 8'b11111111;
-	 //assign HEX3 = (col_i == 3) ? ~seg7_o[3] : 8'b11111111;
-	 //assign HEX2 = (col_i == 2) ? ~seg7_o[2] : 8'b11111111;
-	 //assign HEX1 = (col_i == 1) ? ~seg7_o[1] : 8'b11111111;
-	 //assign HEX0 = (col_i == 0) ? ~seg7_o[0] : 8'b11111111;
+
 
 endmodule

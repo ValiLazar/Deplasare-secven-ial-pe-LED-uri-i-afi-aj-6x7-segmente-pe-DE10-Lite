@@ -114,8 +114,9 @@ module DE10_LITE_Golden_Top(
 );
 
 
-// Incrementare cod pe placa
-
+	// =========================
+	// Incrementare cod pe placa
+	// =========================
 
 deplasare_main deplasare_inst (
     .sw0(SW[0]),

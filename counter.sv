@@ -9,12 +9,16 @@ module counter #(
     output reg overflow_o
 );
 
+	 // ============================
+    // GENERARE COUNTER Și OVERFLOW
+    // ============================
+
 always @(posedge clk_i or negedge reset_ni) begin
     if (!reset_ni) begin
         count <= 0;
         overflow_o <= 0;
 
-    end else if (enable) begin  // enable = 1 când unul din cele două butoane este apăsat
+    end else if (enable) begin  // bHEX || bLED
         
         if (count == COUNT_TO) begin
             count <= 0;

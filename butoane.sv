@@ -7,7 +7,10 @@ module butoane(
     output reg bHEX
 );
 
-// sw0 = LED, sw1 = HEX
+
+	// ======================================
+	// ATRIBUIRE SEMNALE BUTOANE CĂTRE IEȘIRI
+	// ======================================
 
 always @(posedge clk_i or negedge reset_ni) begin
     if (!reset_ni) begin

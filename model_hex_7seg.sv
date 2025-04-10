@@ -1,5 +1,5 @@
  module model_hex_7seg #(
- bit COMMON_ANODE = 1'b1
+ bit COMMON_ANODE = 1'b1   
  ) (
  input row_i ,
  input en_i ,
@@ -10,6 +10,10 @@
  localparam LOW_CIRCLE = 8'b0_1011100;    // jos
  localparam OFF = 8'b0_0000000;           // oprit
 
+	// ===============================================
+	// LOGICA DE CONTROL AFISARE 7 SEGMENTE MODEL CERC
+	// ===============================================
+ 
  always_comb begin
  if (en_i)
 	if (row_i)

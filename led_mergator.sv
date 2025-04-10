@@ -4,12 +4,16 @@ module led_mergator #(
     input clk_i,
     input reset_ni,
     input enable,
-    output reg [LED_COUNT-1:0] ledr   // LED-urile care vor fi afișate
+    output reg [LED_COUNT-1:0] ledr   
 );
 
 reg directionLED;   
-reg [LED_COUNT-1:0] next_ledr;   
+reg [LED_COUNT-1:0] next_ledr;  
 
+	// ===================
+	// LOGICA LED MERGĂTOR
+	// ===================
+	
 always @(posedge clk_i or negedge reset_ni) begin
     if (!reset_ni) begin    
         directionLED <= 1;   
@@ -31,7 +35,7 @@ always @(posedge clk_i or negedge reset_ni) begin
             else
                 next_ledr = ledr >> 1;
         end
-        ledr <= next_ledr;  // actualizare
+        ledr <= next_ledr;  
     end
 end
 
