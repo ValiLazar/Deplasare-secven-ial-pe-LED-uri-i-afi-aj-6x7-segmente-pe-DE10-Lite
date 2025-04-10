@@ -9,7 +9,7 @@ module counter #(
     output reg overflow_o
 );
 
-	 // ============================
+	// ============================
     // GENERARE COUNTER Și OVERFLOW
     // ============================
 
